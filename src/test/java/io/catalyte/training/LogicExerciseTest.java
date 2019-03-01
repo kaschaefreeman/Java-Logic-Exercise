@@ -22,49 +22,49 @@ public class LogicExerciseTest {
 	}
 	
 	@Test
-	public void testGet15PercentDiscount() {
+	public void getDiscountWorksReturns15PercentDiscountForMoreThan99Units() {
 		
 		int quantity = 100;
 		
-		BigDecimal unitPrice = new BigDecimal("1.00");
+		BigDecimal unitPrice = new BigDecimal("10.00");
 		
 		BigDecimal result = exercise.getDiscount(unitPrice, quantity);
 		
-		assertTrue("Wrong discount was given. Got: " + result, result.equals(new BigDecimal("85.00")));
+		assertTrue("Wrong discount was given. Got: " + result, result.equals(new BigDecimal("850.00")));
 		
 	}
 	
 	@Test
-	public void testGet10PercentDiscount() {
+	public void getDiscountWorksReturns10PercentDiscount() {
 		
 		int quantity = 50;
 		
-		BigDecimal unitPrice = new BigDecimal("1.00");
+		BigDecimal unitPrice = new BigDecimal("10.00");
 		
 		BigDecimal result = exercise.getDiscount(unitPrice, quantity);
 		
-		assertTrue("Wrong discount was given. Got: " + result, result.equals(new BigDecimal("45.00")));
+		assertTrue("Wrong discount was given. Got: " + result, result.equals(new BigDecimal("450.00")));
 		
 	}
 
 	
 	@Test
-	public void testGetNoDiscount() {
+	public void getDiscountReturnsActualPriceIfNoDiscount() {
 		
-		BigDecimal unitPrice = new BigDecimal("1.00");
+		BigDecimal unitPrice = new BigDecimal("1.11");
 		
-		int quantity = 30;
-		
+		int quantity = 49;
+
 		BigDecimal result = exercise.getDiscount(unitPrice, quantity);
 		
-		assertTrue("Wrong discount was given. Got: " + result, result.equals(new BigDecimal("30.00")));
+		assertTrue("Wrong discount was given. Got: " + result, result.equals(new BigDecimal("54.39")));
 		
 	}
 	
 	@Test
-	public void testGetGradeA() {
+	public void getGradeReturnsA() {
 		
-		int input = 93;
+		int input = 90;
 		
 		char result = exercise.getGrade(input);
 		
@@ -73,7 +73,7 @@ public class LogicExerciseTest {
 	}
 	
 	@Test
-	public void testGetGradeB() {
+	public void getGradeReturnsB() {
 		
 		int input = 89;
 		
@@ -84,9 +84,9 @@ public class LogicExerciseTest {
 	}	
 	
 	@Test
-	public void testGetGradeC() {
+	public void getGradeReturnsC() {
 		
-		int input = 77;
+		int input = 70;
 		
 		char result = exercise.getGrade(input);
 		
@@ -95,9 +95,9 @@ public class LogicExerciseTest {
 	}	
 	
 	@Test
-	public void testGetGradeD() {
+	public void getGradeReturnsD() {
 		
-		int input = 66;
+		int input = 60;
 		
 		char result = exercise.getGrade(input);
 		
@@ -106,9 +106,9 @@ public class LogicExerciseTest {
 	}	
 	
 	@Test
-	public void testGetGradeF() {
+	public void getGradeReturnsF() {
 		
-		int input = 49;
+		int input = 59;
 		
 		char result = exercise.getGrade(input);
 		
@@ -133,7 +133,7 @@ public class LogicExerciseTest {
 	}
 	
 	@Test
-	public void testIndexOfMax() {
+	public void indexOfMaxHandlesPositiveArrays() {
 		
 		int[] input = {7, 91, 2, 45, 101, 6};
 		
@@ -141,6 +141,28 @@ public class LogicExerciseTest {
 		
 		int result = exercise.indexOfMax(input);
 		
+		assertEquals("The wrong element was returned. Expected: " + expected + " Got: " + result, expected, result);
+	}
+
+	@Test
+	public void indexOfMaxHandlesNegativeArrays() {
+		int[] input = {-10,-5, -100};
+
+		int expected = 1;
+
+		int result = exercise.indexOfMax(input);
+
+		assertEquals("The wrong index was returned. Expected: " + expected + " Got: " + result, expected, result);
+	}
+
+	@Test
+	public void indexOfMaxHandlesEmptyArrays() {
+		int[] input = {};
+
+		int expected = -1;
+
+		int result = exercise.indexOfMax(input);
+
 		assertEquals("The wrong element was returned. Expected: " + expected + " Got: " + result, expected, result);
 	}
 	
@@ -153,7 +175,7 @@ public class LogicExerciseTest {
 		
 		boolean result = exercise.isDivisibleBy(input, divisor);
 		
-		assertEquals("Array is divisible by divisor 3.", result, true);
+		assertEquals("Array is divisible by divisor 3.", true, result);
 		
 	}
 	
@@ -166,7 +188,7 @@ public class LogicExerciseTest {
 		
 		boolean result = exercise.isDivisibleBy(input, divisor);
 		
-		assertEquals("Array is not divisible by divisor 2.", result, false);
+		assertEquals("Array is not divisible by divisor 2.", false, result);
 		
 	}
 	
@@ -177,7 +199,7 @@ public class LogicExerciseTest {
 		
 		boolean result = exercise.isAbecedarian(input);
 		
-		assertEquals("Input is abecedarian: " + input, result, true);
+		assertEquals("Input is abecedarian: " + input, true, result);
 		
 	}
 	
@@ -188,7 +210,7 @@ public class LogicExerciseTest {
 		
 		boolean result = exercise.isAbecedarian(input);
 		
-		assertEquals("Input is not abecedarian: " + input, result, false);
+		assertEquals("Input is not abecedarian: " + input, false, result);
 		
 	}
 	
@@ -201,8 +223,34 @@ public class LogicExerciseTest {
 		
 		boolean result = exercise.areAnagrams(input1, input2);
 		
-		assertEquals("Inputs are anagrams.", result, true);
+		assertEquals("Inputs are anagrams.", true, result);
 		
+	}
+
+	@Test
+	public void areAnagramsReturnsFalseWithDifferentLengthStrings() {
+
+		String input1 = "statu";
+
+		String input2 = "astute";
+
+		boolean result = exercise.areAnagrams(input1, input2);
+
+		assertEquals("Inputs are anagrams.", false, result);
+
+	}
+
+	@Test
+	public void areAnagramsReturnsFalseWithDifferentCountsOfLetterOccurences() {
+
+		String input1 = "aaab";
+
+		String input2 = "abbb";
+
+		boolean result = exercise.areAnagrams(input1, input2);
+
+		assertEquals("Inputs are anagrams.", false, result);
+
 	}
 	
 	@Test
@@ -262,10 +310,19 @@ public class LogicExerciseTest {
 		
 		String input = "madam";
 		
-		boolean expected = exercise.isPalindrome(input);
+		boolean result = exercise.isPalindrome(input);
 		
-		assertEquals("Input was not recognized as a palindrome: " + input, expected, true);
+		assertEquals("Input was not recognized as a palindrome: " + input, true, result);
 	
+	}
+
+	@Test
+	public void isPalindromeReturnsTrueForSingleLetter() {
+		String input = "a";
+
+		boolean result = exercise.isPalindrome(input);
+
+		assertEquals("Input was not recognized as a palindrome: " + input, true, result);
 	}
 	
 	
@@ -274,9 +331,9 @@ public class LogicExerciseTest {
 		
 		String input = "zoomzoom";
 		
-		boolean expected = exercise.isPalindrome(input);
+		boolean result = exercise.isPalindrome(input);
 		
-		assertEquals("Input was recognized as a palindrome: " + input, expected, false);	
+		assertEquals("Input was recognized as a palindrome: " + input, false, result);
 		
 	}
 	
