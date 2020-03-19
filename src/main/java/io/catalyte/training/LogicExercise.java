@@ -83,7 +83,7 @@ public class LogicExercise {
   }
 
   /**
-   * This method should take 2 arrays and return true if they are anagrams of each other. For
+   * This method should take 2 strings and return true if they are anagrams of each other. For
    * example, "stop" is an anagram for "pots".
    */
   public boolean areAnagrams(String s1, String s2) {
