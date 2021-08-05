@@ -268,7 +268,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertEquals("Inputs are anagrams: " + input1 + " " + input2, result, true);
+    assertEquals("Inputs are anagrams: " + input1 + " " + input2, true, result);
 
   }
 
@@ -281,7 +281,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertEquals("Inputs are not anagrams: " + input1 + " " + input2, result, false);
+    assertEquals("Inputs are not anagrams: " + input1 + " " + input2, false, result);
 
   }
 
@@ -292,7 +292,7 @@ public class LogicExerciseTest {
 
     int result = exercise.countUniqueCharacters(input1);
 
-    assertEquals("Wrong number of unique characters found. Expected: 5. Got: " + result, result, 5);
+    assertEquals("Wrong number of unique characters found. Expected: 5. Got: " + result, 5, result);
 
   }
 
@@ -366,7 +366,7 @@ public class LogicExerciseTest {
 
     assertEquals(
         "Wrong number of entries in Concordance. Expected: " + expected.size() + ". Got: " + result
-            .size(), result.size(), 5);
+            .size(), expected.size(), result.size());
 
     ArrayList<Integer> locations = result.get("e");
 
@@ -376,6 +376,8 @@ public class LogicExerciseTest {
 
     assertTrue("Missing location for letter 'e'", locations.contains(new Integer(6)));
 
+    assertEquals("Too many locations found for letter 'e'", 3, locations.size());
+
     locations = result.get("n");
 
     assertTrue("Missing location for letter 'n'", locations.contains(new Integer(1)));
@@ -384,11 +386,15 @@ public class LogicExerciseTest {
 
     assertTrue("Missing location for letter 'n'", locations.contains(new Integer(9)));
 
+    assertEquals("Too many locations found for letter 'n'", 3, locations.size());
+
     locations = result.get("g");
 
     assertTrue("Missing location for letter 'g'", locations.contains(new Integer(2)));
 
     assertTrue("Missing location for letter 'g'", locations.contains(new Integer(10)));
+
+    assertEquals("Too many locations found for letter 'g'", 2, locations.size());
 
     locations = result.get("i");
 
@@ -396,9 +402,13 @@ public class LogicExerciseTest {
 
     assertTrue("Missing location for letter 'i'", locations.contains(new Integer(8)));
 
+    assertEquals("Too many locations found for letter 'i'", 2, locations.size());
+
     locations = result.get("r");
 
     assertTrue("Missing location for letter 'r'", locations.contains(new Integer(7)));
+
+    assertEquals("Too many locations found for letter 'r'", 1, locations.size());
 
   }
 
