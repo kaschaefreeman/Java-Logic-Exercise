@@ -268,7 +268,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertTrue(result,() ->"Inputs are anagrams" + input1 + "," + input2);
+    assertTrue(result,"Inputs are anagrams" + input1 + "," + input2);
 
   }
 
@@ -370,7 +370,7 @@ public class LogicExerciseTest {
         () -> assertIterableEquals(expected.get("e"),result.get("e")),
         () -> assertIterableEquals(expected.get("n"),result.get("n"))
     );
-    
+
   }
 
 }

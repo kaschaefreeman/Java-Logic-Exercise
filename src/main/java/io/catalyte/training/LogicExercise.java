@@ -19,7 +19,7 @@ public class LogicExercise {
    */
   public BigDecimal getDiscount(BigDecimal unitPrice, int unitAmount) {
 
-    return null;
+    return new BigDecimal("-999");
   }
 
   /**
