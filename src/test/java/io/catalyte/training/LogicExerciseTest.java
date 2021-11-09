@@ -37,7 +37,8 @@ public class LogicExerciseTest {
 
     BigDecimal result = exercise.getDiscount(unitPrice, quantity);
 
-    assertEquals(new BigDecimal("850.00"), result, () ->"Wrong discount was given. Got: " + result);
+    assertEquals(new BigDecimal("850.00"), result,
+        () -> "Wrong discount was given. Got: " + result);
 
 
   }
@@ -51,7 +52,8 @@ public class LogicExerciseTest {
 
     BigDecimal result = exercise.getDiscount(unitPrice, quantity);
 
-    assertEquals(new BigDecimal("450.00"),result, () ->"Wrong discount was given. Got: " + result);
+    assertEquals(new BigDecimal("450.00"), result,
+        () -> "Wrong discount was given. Got: " + result);
 
 
   }
@@ -66,7 +68,7 @@ public class LogicExerciseTest {
 
     BigDecimal result = exercise.getDiscount(unitPrice, quantity);
 
-    assertEquals(new BigDecimal("54.39"),result, () ->"Wrong discount was given. Got: " + result);
+    assertEquals(new BigDecimal("54.39"), result, () -> "Wrong discount was given. Got: " + result);
 
 
   }
@@ -78,7 +80,7 @@ public class LogicExerciseTest {
 
     char result = exercise.getGrade(input);
 
-    assertEquals('A',result,() ->"Wrong grade was given. Got: " + result);
+    assertEquals('A', result, () -> "Wrong grade was given. Got: " + result);
 
 
   }
@@ -90,7 +92,7 @@ public class LogicExerciseTest {
 
     char result = exercise.getGrade(input);
 
-    assertEquals('B',result,() ->"Wrong grade was given. Got: " + result);
+    assertEquals('B', result, () -> "Wrong grade was given. Got: " + result);
 
 
   }
@@ -102,7 +104,7 @@ public class LogicExerciseTest {
 
     char result = exercise.getGrade(input);
 
-    assertEquals('C',result,() ->"Wrong grade was given. Got: " + result);
+    assertEquals('C', result, () -> "Wrong grade was given. Got: " + result);
 
 
   }
@@ -114,7 +116,7 @@ public class LogicExerciseTest {
 
     char result = exercise.getGrade(input);
 
-    assertEquals('D',result,() ->"Wrong grade was given. Got: " + result);
+    assertEquals('D', result, () -> "Wrong grade was given. Got: " + result);
 
 
   }
@@ -126,7 +128,7 @@ public class LogicExerciseTest {
 
     char result = exercise.getGrade(input);
 
-    assertEquals('F',result,() ->"Wrong grade was given. Got: " + result);
+    assertEquals('F', result, () -> "Wrong grade was given. Got: " + result);
 
   }
 
@@ -137,7 +139,7 @@ public class LogicExerciseTest {
 
     double[] result = exercise.powerArray(input);
 
-    assertArrayEquals(input,result,() ->"the arrays do not match");
+    assertArrayEquals(input, result, () -> "the arrays do not match");
 
   }
 
@@ -148,7 +150,7 @@ public class LogicExerciseTest {
 
     int result = exercise.indexOfMax(input);
 
-    assertEquals(4,result,() ->"The wrong element was returned. Expected: 4 Got: " + result);
+    assertEquals(4, result, () -> "The wrong element was returned. Expected: 4 Got: " + result);
 
   }
 
@@ -156,10 +158,9 @@ public class LogicExerciseTest {
   public void indexOfMaxHandlesNegativeArrays() {
     int[] input = {-10, -5, -100};
 
-
     int result = exercise.indexOfMax(input);
 
-    assertEquals(1,result,() ->"The wrong element was returned. Expected: 1 Got: " + result);
+    assertEquals(1, result, () -> "The wrong element was returned. Expected: 1 Got: " + result);
   }
 
   @Test
@@ -168,7 +169,7 @@ public class LogicExerciseTest {
 
     int result = exercise.indexOfMax(input);
 
-    assertEquals(-1,result,() ->"The wrong element was returned. Expected: -1 Got: " + result);
+    assertEquals(-1, result, () -> "The wrong element was returned. Expected: -1 Got: " + result);
   }
 
   @Test
@@ -180,7 +181,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isDivisibleBy(input, divisor);
 
-    assertTrue(result,() ->"Array is not divisible by divisor 3.");
+    assertTrue(result, () -> "Array is not divisible by divisor 3.");
 
   }
 
@@ -193,7 +194,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isDivisibleBy(input, divisor);
 
-    assertFalse(result,() ->"Array is not divisible by divisor 2.");
+    assertFalse(result, () -> "Array is not divisible by divisor 2.");
 
 
   }
@@ -205,7 +206,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isAbecedarian(input);
 
-    assertTrue(result,() ->"Input is abecedarian: " + input);
+    assertTrue(result, () -> "Input is abecedarian: " + input);
 
 
   }
@@ -217,7 +218,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isAbecedarian(input);
 
-    assertFalse(result,() ->"Input is not abecedarian: " + input);
+    assertFalse(result, () -> "Input is not abecedarian: " + input);
   }
 
   @Test
@@ -229,7 +230,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertTrue(result,() ->"Inputs are anagrams" + input1 + "," + input2);
+    assertTrue(result, () -> "Inputs are anagrams" + input1 + "," + input2);
 
 
   }
@@ -243,7 +244,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertFalse(result,() ->"Inputs are not anagrams" + input1 + "," + input2);
+    assertFalse(result, () -> "Inputs are not anagrams" + input1 + "," + input2);
 
   }
 
@@ -256,7 +257,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertFalse(result,() ->"Inputs are not anagrams" + input1 + "," + input2);
+    assertFalse(result, () -> "Inputs are not anagrams" + input1 + "," + input2);
   }
 
   @Test
@@ -268,7 +269,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertTrue(result,"Inputs are anagrams" + input1 + "," + input2);
+    assertTrue(result, "Inputs are anagrams" + input1 + "," + input2);
 
   }
 
@@ -281,7 +282,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertFalse(result,() ->"Inputs are not anagrams" + input1 + "," + input2);
+    assertFalse(result, () -> "Inputs are not anagrams" + input1 + "," + input2);
 
   }
 
@@ -292,8 +293,8 @@ public class LogicExerciseTest {
 
     int result = exercise.countUniqueCharacters(input1);
 
-
-    assertEquals(5,result,() ->"Wrong number of unique characters found. Expected: 5. Got: " + result);
+    assertEquals(5, result,
+        () -> "Wrong number of unique characters found. Expected: 5. Got: " + result);
 
   }
 
@@ -309,7 +310,7 @@ public class LogicExerciseTest {
 
     ArrayList<String> result = exercise.removeEvenLength(input);
 
-    assertIterableEquals(expected,result,() ->"Result does not have expected values");
+    assertIterableEquals(expected, result, () -> "Result does not have expected values");
 
   }
 
@@ -320,7 +321,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isPalindrome(input);
 
-    assertTrue(result,() ->"Input was not recognized as a palindrome: " + input);
+    assertTrue(result, () -> "Input was not recognized as a palindrome: " + input);
 
   }
 
@@ -330,7 +331,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isPalindrome(input);
 
-    assertTrue(result,() ->"Input was not recognized as a palindrome: " + input);
+    assertTrue(result, () -> "Input was not recognized as a palindrome: " + input);
   }
 
 
@@ -341,7 +342,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isPalindrome(input);
 
-    assertFalse(result,() -> "Input was recognized as a palindrome: " + input);
+    assertFalse(result, () -> "Input was recognized as a palindrome: " + input);
 
   }
 
@@ -364,11 +365,10 @@ public class LogicExerciseTest {
 
     HashMap<String, ArrayList<Integer>> result = exercise.concordanceForString(input1);
 
-
-    Assertions.assertAll( "The concordance does not match",
+    Assertions.assertAll("The concordance does not match",
         () -> assertEquals(expected.size(), result.size()),
-        () -> assertIterableEquals(expected.get("e"),result.get("e")),
-        () -> assertIterableEquals(expected.get("n"),result.get("n"))
+        () -> assertIterableEquals(expected.get("e"), result.get("e")),
+        () -> assertIterableEquals(expected.get("n"), result.get("n"))
     );
 
   }
