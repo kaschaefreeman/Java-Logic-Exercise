@@ -1,21 +1,27 @@
 package io.catalyte.training;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions.*;
 
 
 public class LogicExerciseTest {
 
   LogicExercise exercise;
 
-  @Before
+  @BeforeEach
   public void init() {
 
     exercise = new LogicExercise();
@@ -31,7 +37,8 @@ public class LogicExerciseTest {
 
     BigDecimal result = exercise.getDiscount(unitPrice, quantity);
 
-    assertTrue("Wrong discount was given. Got: " + result, result.equals(new BigDecimal("850.00")));
+    assertEquals(new BigDecimal("850.00"), result, () ->"Wrong discount was given. Got: " + result);
+
 
   }
 
@@ -44,7 +51,8 @@ public class LogicExerciseTest {
 
     BigDecimal result = exercise.getDiscount(unitPrice, quantity);
 
-    assertTrue("Wrong discount was given. Got: " + result, result.equals(new BigDecimal("450.00")));
+    assertEquals(new BigDecimal("450.00"),result, () ->"Wrong discount was given. Got: " + result);
+
 
   }
 
@@ -58,7 +66,8 @@ public class LogicExerciseTest {
 
     BigDecimal result = exercise.getDiscount(unitPrice, quantity);
 
-    assertTrue("Wrong discount was given. Got: " + result, result.equals(new BigDecimal("54.39")));
+    assertEquals(new BigDecimal("54.39"),result, () ->"Wrong discount was given. Got: " + result);
+
 
   }
 
@@ -69,7 +78,8 @@ public class LogicExerciseTest {
 
     char result = exercise.getGrade(input);
 
-    assertTrue("Wrong grade was given. Got: " + result, result == 'A');
+    assertEquals('A',result,() ->"Wrong grade was given. Got: " + result);
+
 
   }
 
@@ -80,7 +90,8 @@ public class LogicExerciseTest {
 
     char result = exercise.getGrade(input);
 
-    assertTrue("Wrong grade was given. Got: " + result, result == 'B');
+    assertEquals('B',result,() ->"Wrong grade was given. Got: " + result);
+
 
   }
 
@@ -91,7 +102,8 @@ public class LogicExerciseTest {
 
     char result = exercise.getGrade(input);
 
-    assertTrue("Wrong grade was given. Got: " + result, result == 'C');
+    assertEquals('C',result,() ->"Wrong grade was given. Got: " + result);
+
 
   }
 
@@ -102,7 +114,8 @@ public class LogicExerciseTest {
 
     char result = exercise.getGrade(input);
 
-    assertTrue("Wrong grade was given. Got: " + result, result == 'D');
+    assertEquals('D',result,() ->"Wrong grade was given. Got: " + result);
+
 
   }
 
@@ -113,7 +126,7 @@ public class LogicExerciseTest {
 
     char result = exercise.getGrade(input);
 
-    assertTrue("Wrong grade was given. Got: " + result, result == 'F');
+    assertEquals('F',result,() ->"Wrong grade was given. Got: " + result);
 
   }
 
@@ -124,15 +137,8 @@ public class LogicExerciseTest {
 
     double[] result = exercise.powerArray(input);
 
-    assertEquals("The length of the output array should equal the length of the input.",
-        input.length, result.length);
+    assertArrayEquals(input,result,() ->"the arrays do not match");
 
-    for (int i = 0; i < input.length; i++) {
-
-      assertEquals("Expected a square of the input: " + input[i] + ". Result: " + result[i] + ".",
-          new Double(input[i] * input[i]), new Double(result[i]));
-
-    }
   }
 
   @Test
@@ -140,36 +146,29 @@ public class LogicExerciseTest {
 
     int[] input = {7, 91, 2, 45, 101, 6};
 
-    int expected = 4;
-
     int result = exercise.indexOfMax(input);
 
-    assertEquals("The wrong element was returned. Expected: " + expected + " Got: " + result,
-        expected, result);
+    assertEquals(4,result,() ->"The wrong element was returned. Expected: 4 Got: " + result);
+
   }
 
   @Test
   public void indexOfMaxHandlesNegativeArrays() {
     int[] input = {-10, -5, -100};
 
-    int expected = 1;
 
     int result = exercise.indexOfMax(input);
 
-    assertEquals("The wrong index was returned. Expected: " + expected + " Got: " + result,
-        expected, result);
+    assertEquals(1,result,() ->"The wrong element was returned. Expected: 1 Got: " + result);
   }
 
   @Test
   public void indexOfMaxHandlesEmptyArrays() {
     int[] input = {};
 
-    int expected = -1;
-
     int result = exercise.indexOfMax(input);
 
-    assertEquals("The wrong element was returned. Expected: " + expected + " Got: " + result,
-        expected, result);
+    assertEquals(-1,result,() ->"The wrong element was returned. Expected: -1 Got: " + result);
   }
 
   @Test
@@ -181,7 +180,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isDivisibleBy(input, divisor);
 
-    assertEquals("Array is divisible by divisor 3.", true, result);
+    assertTrue(result,() ->"Array is not divisible by divisor 3.");
 
   }
 
@@ -194,7 +193,8 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isDivisibleBy(input, divisor);
 
-    assertEquals("Array is not divisible by divisor 2.", false, result);
+    assertFalse(result,() ->"Array is not divisible by divisor 2.");
+
 
   }
 
@@ -205,7 +205,8 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isAbecedarian(input);
 
-    assertEquals("Input is abecedarian: " + input, true, result);
+    assertTrue(result,() ->"Input is abecedarian: " + input);
+
 
   }
 
@@ -216,8 +217,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isAbecedarian(input);
 
-    assertEquals("Input is not abecedarian: " + input, false, result);
-
+    assertFalse(result,() ->"Input is not abecedarian: " + input);
   }
 
   @Test
@@ -229,7 +229,8 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertEquals("Inputs are anagrams.", true, result);
+    assertTrue(result,() ->"Inputs are anagrams" + input1 + "," + input2);
+
 
   }
 
@@ -242,7 +243,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertEquals("Inputs are anagrams.", false, result);
+    assertFalse(result,() ->"Inputs are not anagrams" + input1 + "," + input2);
 
   }
 
@@ -255,8 +256,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertEquals("Inputs are anagrams.", false, result);
-
+    assertFalse(result,() ->"Inputs are not anagrams" + input1 + "," + input2);
   }
 
   @Test
@@ -268,7 +268,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertEquals("Inputs are anagrams: " + input1 + " " + input2, true, result);
+    assertTrue(result,() ->"Inputs are anagrams" + input1 + "," + input2);
 
   }
 
@@ -281,7 +281,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.areAnagrams(input1, input2);
 
-    assertEquals("Inputs are not anagrams: " + input1 + " " + input2, false, result);
+    assertFalse(result,() ->"Inputs are not anagrams" + input1 + "," + input2);
 
   }
 
@@ -292,7 +292,8 @@ public class LogicExerciseTest {
 
     int result = exercise.countUniqueCharacters(input1);
 
-    assertEquals("Wrong number of unique characters found. Expected: 5. Got: " + result, 5, result);
+
+    assertEquals(5,result,() ->"Wrong number of unique characters found. Expected: 5. Got: " + result);
 
   }
 
@@ -308,8 +309,7 @@ public class LogicExerciseTest {
 
     ArrayList<String> result = exercise.removeEvenLength(input);
 
-    assertEquals("Result does not have expected values: " + expected.toString() + " Got: " + result
-        .toString(), expected, result);
+    assertIterableEquals(expected,result,() ->"Result does not have expected values");
 
   }
 
@@ -320,7 +320,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isPalindrome(input);
 
-    assertEquals("Input was not recognized as a palindrome: " + input, true, result);
+    assertTrue(result,() ->"Input was not recognized as a palindrome: " + input);
 
   }
 
@@ -330,7 +330,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isPalindrome(input);
 
-    assertEquals("Input was not recognized as a palindrome: " + input, true, result);
+    assertTrue(result,() ->"Input was not recognized as a palindrome: " + input);
   }
 
 
@@ -341,7 +341,7 @@ public class LogicExerciseTest {
 
     boolean result = exercise.isPalindrome(input);
 
-    assertEquals("Input was recognized as a palindrome: " + input, false, result);
+    assertFalse(result,() -> "Input was recognized as a palindrome: " + input);
 
   }
 
@@ -364,52 +364,13 @@ public class LogicExerciseTest {
 
     HashMap<String, ArrayList<Integer>> result = exercise.concordanceForString(input1);
 
-    assertEquals(
-        "Wrong number of entries in Concordance. Expected: " + expected.size() + ". Got: " + result
-            .size(), expected.size(), result.size());
 
-    ArrayList<Integer> locations = result.get("e");
-
-    assertTrue("Missing location for letter 'e'", locations.contains(new Integer(0)));
-
-    assertTrue("Missing location for letter 'e'", locations.contains(new Integer(5)));
-
-    assertTrue("Missing location for letter 'e'", locations.contains(new Integer(6)));
-
-    assertEquals("Too many locations found for letter 'e'", 3, locations.size());
-
-    locations = result.get("n");
-
-    assertTrue("Missing location for letter 'n'", locations.contains(new Integer(1)));
-
-    assertTrue("Missing location for letter 'n'", locations.contains(new Integer(4)));
-
-    assertTrue("Missing location for letter 'n'", locations.contains(new Integer(9)));
-
-    assertEquals("Too many locations found for letter 'n'", 3, locations.size());
-
-    locations = result.get("g");
-
-    assertTrue("Missing location for letter 'g'", locations.contains(new Integer(2)));
-
-    assertTrue("Missing location for letter 'g'", locations.contains(new Integer(10)));
-
-    assertEquals("Too many locations found for letter 'g'", 2, locations.size());
-
-    locations = result.get("i");
-
-    assertTrue("Missing location for letter 'i'", locations.contains(new Integer(3)));
-
-    assertTrue("Missing location for letter 'i'", locations.contains(new Integer(8)));
-
-    assertEquals("Too many locations found for letter 'i'", 2, locations.size());
-
-    locations = result.get("r");
-
-    assertTrue("Missing location for letter 'r'", locations.contains(new Integer(7)));
-
-    assertEquals("Too many locations found for letter 'r'", 1, locations.size());
-
+    Assertions.assertAll( "The concordance does not match",
+        () -> assertEquals(expected.size(), result.size()),
+        () -> assertIterableEquals(expected.get("e"),result.get("e")),
+        () -> assertIterableEquals(expected.get("n"),result.get("n"))
+    );
+    
   }
 
 }
