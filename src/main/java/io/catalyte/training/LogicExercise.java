@@ -24,7 +24,7 @@ public class LogicExercise {
 
   /**
    * This method takes an int representing a percentile score and should return the appropriate
-   * letter grade. If the score is above 90, return 'A'; if the score is between 80 and 89, return
+   * letter grade. If the score is 90 or above, return 'A'; if the score is between 80 and 89, return
    * 'B'; if the score is between 70 and 79, return 'C'; if the score is between 60 and 69, return
    * 'D'; if the score is below 60, return 'F'.
    */
