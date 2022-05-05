@@ -134,7 +134,9 @@ public class LogicExerciseTest {
   @Test
   public void testPowerArray() {
 
-    double[] input = {2.2, 3.3, 4, 5};
+    double[] input = {2, 3, 4, 5};
+
+    double[] expected = {4, 9, 16, 20};
 
     double[] result = exercise.powerArray(input);
 
