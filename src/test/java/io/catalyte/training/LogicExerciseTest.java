@@ -140,7 +140,7 @@ public class LogicExerciseTest {
 
     double[] result = exercise.powerArray(input);
 
-    assertArrayEquals(input, result, () -> "the arrays do not match");
+    assertArrayEquals(expected, result, () -> "the arrays do not match");
 
   }
 
